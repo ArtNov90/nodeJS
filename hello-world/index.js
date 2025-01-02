@@ -1,6 +1,7 @@
 // npm init -d
-// npm install express
+// npm install express nodemon
 // "start": "node index.js"
+// "dev": "nodemon index.js"
 // npm run start
 
 const express = require("express")
