@@ -7,7 +7,9 @@
  *   - le mot clée "function" est interdis
  */
 
-const arrow1 = undefined
+const arrow1 = (arg) => {
+  return arg + 1
+}
 /**
  * Déclarer une fonction fléchée qui renvoi l'argument + 1
  * Le return est implicite
@@ -17,6 +19,6 @@ const arrow1 = undefined
  *   - le mot clée "return" est interdis
  */
 
-const arrow2 = undefined
+const arrow2 = (arg) => arg + 1
 
 module.exports = {arrow1, arrow2};

@@ -15,24 +15,24 @@ const str3 = `Hello world`
 
 
 // Array copy
-let array = [1,55,2, true, "dzaa"]
-let arrayCopy = [ ...array ]
+let array = [1, 55, 2, true, "dzaa"]
+let arrayCopy = [...array]
 
 // Array destructuration
-const [ first, second ] = array
+const [first, second] = array
 
 
 // Object
 const obj = {
-  message : "Hello",
-  code : 200,
+  message: "Hello",
+  code: 200,
 }
 
 
 // Object copy
 const objCopy = {
   ...obj,
-  message : "World"
+  message: "World"
 }
 
 // Object destructuration
@@ -50,7 +50,7 @@ function varTest() {
 
 
 function letTest() {
-  let x = 1 
+  let x = 1
   if (true) {
     let x = 2
     console.log(x) // 2
@@ -59,7 +59,7 @@ function letTest() {
 }
 
 // from
-function tata () {
+function tata() {
   console.log("Hello")
 }
 
@@ -79,7 +79,7 @@ const impliciteIncrement = (arg) => arg + 1
 
 
 // return implicite
-const impliciteIncremen = (arg) => ({name : "John", surname : "Doe"})
+const impliciteIncremen = (arg) => ({ name: "John", surname: "Doe" })
 
 
 if (5 > 9) {
@@ -89,5 +89,42 @@ if (5 > 9) {
 }
 
 
-console.log( 5 > 9 ? "Yes" : "No" )
+console.log(5 > 9 ? "Yes" : "No")
 
+
+
+
+const user = {
+  name: "toto",
+  group: {
+    id: 5,
+    name: "lala"
+  }
+}
+
+const user2 = {
+  name: "toto",
+
+}
+
+user?.group?.name // lala
+user2?.group?.name // undefined
+
+
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+
+console.log("Start")
+
+await sleep(2000)
+
+console.log("End")
+
+const usingAsync = async () => {
+  console.log("Start")
+  await sleep(2000)
+  console.log("End")
+}
+
+console.log(usingAsync())
