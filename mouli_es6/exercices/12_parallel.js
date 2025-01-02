@@ -22,6 +22,9 @@ const urls = [
   "https://jsonplaceholder.typicode.com/todos/3"
 ]
 
-const parallel = undefined
+const parallel = async () => {
+  const results = await Promise.all( urls.map( (url) => apiResponse(url)) )
+  return results
+}
 
 module.exports = { parallel };
