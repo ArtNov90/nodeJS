@@ -6,11 +6,11 @@ app.use(express.json())
 
 
 // Ajoutez un middleware à toutes les routes pour simuler un retard de 2 secondes avant de répondre, en utilisant setTimeout.
-app.use((req, res, next) => {
-  setTimeout(() => {
+app.use( (req, res, next) => {
+  setTimeout( () =>{
     next();
   }, 2000)
-})
+} )
 
 app.listen(3000, () => {
   console.log("App running on port 3000 !")
