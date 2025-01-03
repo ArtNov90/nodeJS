@@ -99,6 +99,7 @@ app.get("/api/users", (req, res) => {
   if (user) {
     return res.json(user)
   }
-
   res.json({message : "User not found !"})
 })
+
+
