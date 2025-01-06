@@ -1,0 +1,31 @@
+{
+<<<<<<< HEAD
+  "name": "intro",
+=======
+  "name": "hello-world",
+>>>>>>> dd039dd4a2b5f31c54defff33f16f1349d9498e8
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+<<<<<<< HEAD
+  "keywords": [],
+=======
+>>>>>>> dd039dd4a2b5f31c54defff33f16f1349d9498e8
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+<<<<<<< HEAD
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+=======
+    "express": "^4.21.2",
+>>>>>>> dd039dd4a2b5f31c54defff33f16f1349d9498e8
+    "nodemon": "^3.1.9"
+  }
+}
