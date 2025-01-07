@@ -1,6 +1,6 @@
 
 const express = require("express")
-const router = express.Router() // const router = require("express").Router()
+const router = express.Router() 
 
 const { getById, search, index, store, update, destroy} = require("../controller/userController")
 const { ageIsPresentAndPositive, nameIsPresent} = require("../middleware/userForm")
