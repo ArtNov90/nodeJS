@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bars</title>
+</head>
+<body>
+  <h1>Bars list :</h1>
+
+  <table>
+
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>adresse</td>
+        <td>tel</td>
+        <td>email</td>
+        <td>description</td>
+        <td>
+          <a href="/bars/create">Create</a>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <% bars.map( (u) => { %>
+        <tr>
+          <td> <%= u.id %></td>
+          <td> <%= u.name %></td>
+          <td> <%= u.age %></td>
+          <td>
+            <a href="/bars/<%= u.id %>">Show</a>
+            <a href="/bars/<%= u.id %>/edit">update</a>
+            <form action="/bars/<%= u.id %>/destroy" method="post">
+              <input type="submit" value="delete">
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+
+
+  </table>
+</body>
+</html>
