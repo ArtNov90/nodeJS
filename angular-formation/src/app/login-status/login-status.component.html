@@ -1,0 +1,11 @@
+<div>
+    <p *ngIf="isLoggedIn; else notLoggedIn">Bienvenue, utilisateur ! 🎉</p>
+    
+    <ng-template #notLoggedIn>
+      <p>Veuillez vous connecter 🔑</p>
+    </ng-template>
+  
+    <button (click)="toggleLogin()">
+      {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
+    </button>
+  </div>

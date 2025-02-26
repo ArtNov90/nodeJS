@@ -1,0 +1,10 @@
+<p>{{ userInfo() }}</p>
+
+<label>Nom :
+    <input type="text" [value]="name()" (input)="updateName($event)" />
+  </label>
+  
+  <label>Âge :
+    <input type="number" [value]="age()" (input)="updateAge($event)" />
+  </label>
+  

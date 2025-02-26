@@ -1,0 +1,25 @@
+<div>
+    <h2>Statut de l'utilisateur</h2>
+  
+    <!-- Message pour l'accès premium -->
+    <p *ngIf="isLoggedIn && hasSubscription">✅ Accès au contenu premium</p>
+  
+    <!-- Message pour l'admin -->
+    <p *ngIf="isAdmin">🔑 Accès admin activé</p>
+  
+    <!-- Message si l'utilisateur n'est pas connecté -->
+    <p *ngIf="!isLoggedIn">⚠️ Veuillez vous connecter</p>
+  
+    <!-- Boutons pour modifier les variables -->
+    <button (click)="toggleLogin()">
+      {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
+    </button>
+  
+    <button (click)="toggleSubscription()" [disabled]="!isLoggedIn">
+      {{ hasSubscription ? 'Annuler abonnement' : 'S’abonner' }}
+    </button>
+  
+    <button (click)="toggleAdmin()">
+      {{ isAdmin ? 'Désactiver admin' : 'Activer admin' }}
+    </button>
+  </div>

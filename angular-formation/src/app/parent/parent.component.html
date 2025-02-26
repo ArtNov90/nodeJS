@@ -1,0 +1,13 @@
+<div>
+    <label for="componentSelect">Choisissez un composant :</label>
+    <select id="componentSelect" (change)="onComponentChange($event)">
+      <option *ngFor="let item of components; let i = index" [value]="i">
+        {{ item.name }}
+      </option>
+    </select>
+  </div>
+  
+  <!-- Affichage dynamique du composant sélectionné -->
+  <div class="component-container">
+    <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
+  </div>
