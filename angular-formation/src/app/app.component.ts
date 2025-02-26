@@ -11,6 +11,9 @@ import { KeyTrackerComponent } from './key-tracker/key-tracker.component';
 import { LoginStatusComponent } from './login-status/login-status.component';
 import { UserRoleComponent } from './user-role/user-role.component';
 import { UserStatusComponent } from './user-status/user-status.component';
+import { FormComponent } from './form/form.component';
+import { FromGroupComponent } from './from-group/from-group.component';
+
 
 
 
@@ -18,7 +21,7 @@ import { UserStatusComponent } from './user-status/user-status.component';
 @Component({
   selector: 'app-root',
   imports: [CommonModule, ModalComponent, ChildOneComponent, ChildTwoComponent, ChildThreeComponent,
-    ButtonComponent,HoverBoxComponent,KeyTrackerComponent,LoginStatusComponent,UserRoleComponent,UserStatusComponent],
+    ButtonComponent,HoverBoxComponent,KeyTrackerComponent,LoginStatusComponent,UserRoleComponent,UserStatusComponent,FormComponent,FromGroupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
