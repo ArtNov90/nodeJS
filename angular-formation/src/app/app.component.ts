@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './modal/modal.component';
 import { ChildOneComponent } from './child-one/child-one.component';
@@ -13,6 +12,8 @@ import { UserRoleComponent } from './user-role/user-role.component';
 import { UserStatusComponent } from './user-status/user-status.component';
 import { FormComponent } from './form/form.component';
 import { FromGroupComponent } from './from-group/from-group.component';
+import { HomeComponent } from './home/home.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 
 
@@ -21,7 +22,7 @@ import { FromGroupComponent } from './from-group/from-group.component';
 @Component({
   selector: 'app-root',
   imports: [CommonModule, ModalComponent, ChildOneComponent, ChildTwoComponent, ChildThreeComponent,
-    ButtonComponent,HoverBoxComponent,KeyTrackerComponent,LoginStatusComponent,UserRoleComponent,UserStatusComponent,FormComponent,FromGroupComponent],
+    ButtonComponent,HoverBoxComponent,KeyTrackerComponent,LoginStatusComponent,UserRoleComponent,UserStatusComponent,FormComponent,FromGroupComponent,HomeComponent,RouterOutlet,RouterLink ,RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
