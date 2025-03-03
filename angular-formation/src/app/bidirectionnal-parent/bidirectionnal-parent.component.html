@@ -1,0 +1,3 @@
+<app-bidirectionnal-child [name]="updatedName" (nameChange)="updatedName = $event" />
+<p>Nom mis à jour : {{updatedName}}</p>
+<button (click)="modify()">Modifier</button>

@@ -1,0 +1,30 @@
+<input type="text" [(ngModel)]="nom" placeholder="Nom">
+
+<p>Bonjour, {{nom}}</p>
+
+<form (submit)="onSubmit()">
+    <input type text [(ngModel)]="utilisateur.nom" name="nom" placeholder="Nom">
+    <input type="email" [(ngModel)]="utilisateur.email" name="email" placeholder="Email">
+    <p>Nom : {{utilisateur.nom}}</p>
+    <p>Nom : {{utilisateur.email}}</p>
+
+    <label>
+        Femme
+        <input type="radio" [(ngModel)]="genre" name="genre" value="Femme">
+    </label>
+    <label>
+        Homme
+        <input type="radio" [(ngModel)]="genre" name="genre" value="Homme">
+    </label>
+    <p>Genre : {{genre}}</p>
+
+    <select [(ngModel)]="pays" name="pays">
+        <option value="France">France</option>
+        <option value="Belgique">Belgique</option>
+        <option value="Suisse">Suisse</option>
+    </select>
+    <p>Pays : {{pays}}</p>
+
+    <button type="submit">Envoyer</button>
+
+</form>

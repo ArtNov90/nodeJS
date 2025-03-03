@@ -1,0 +1,45 @@
+<div class="form-container">
+    <form [formGroup]="formulaire" (submit)="onSubmit()">
+        <div>
+            <label for="nom">Nom:</label>
+            <input id="nom" formControlName="nom" type="text" />
+            @if (formulaire.get('nom')?.invalid && formulaire.get('nom')?.touched) {
+            <small>Le nom doit contenir au moins 3 caractères.</small>
+            }
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input id="email" formControlName="email" type="email" />
+            @if (formulaire.get('email')?.invalid && formulaire.get('email')?.touched) {
+            <small>Veuillez entrer un email valide.</small>
+            }
+        </div>
+
+        <div>
+            <label for="message">Message:</label>
+            <input id="message" formControlName="message" type="text" />
+            @if (formulaire.get('message')?.invalid && formulaire.get('message')?.touched) {
+            <small>Le message doit contenir au moins 10 caractères.</small>
+            }
+        </div>
+
+        <div>
+            <label for="langue">Langue:</label>
+            <select id="langue" formControlName="langue">
+                <option value="Francais">Francais</option>
+                <option value="Espagnol">Espagnol</option>
+                <option value="Anglais">Anglais</option>
+            </select>
+            @if (formulaire.get('langue')?.invalid && formulaire.get('langue')?.touched) {
+            <small>Langue non sélectionnée</small>
+            }
+        </div>
+
+
+
+
+
+        <button type="submit" [disabled]="formulaire.invalid">Soumettre</button>
+    </form>
+</div>

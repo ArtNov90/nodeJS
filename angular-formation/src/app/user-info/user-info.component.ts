@@ -1,4 +1,5 @@
-import { Component, computed, signal, effect } from '@angular/core';
+import { Component, effect } from '@angular/core';
+import { signal, computed } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -7,34 +8,47 @@ import { Component, computed, signal, effect } from '@angular/core';
   styleUrl: './user-info.component.css'
 })
 export class UserInfoComponent {
-  name = signal('Arthur'); // Nom par défaut
-  age = signal(16); // Âge par défaut
+  name = signal('Alice');
+  age = signal(17);
+  email = signal('alice@example.com');
+  city = signal('Paris');
+  job = signal('Développeuse');
 
-  // Message généré dynamiquement avec computed()
-  userInfo = computed(() => `Bonjour, je m'appelle ${this.name()} et j'ai ${this.age()} ans.`);
+  isMinor = computed( () => this.age() < 18);
 
-  // Effect pour afficher les changements dans la console
-  userEffect = effect(() => {
-    console.log(`Utilisateur: ${this.name()}, Âge: ${this.age()}`);
-  });
+  constructor() {
+    effect(() => {
+      console.log('Profil mis à jour :', {
+        name: this.name(),
+        age: this.age(),
+        email: this.email(),
+        city: this.city(),
+        job: this.job(),
+      });
+    });
 
-  // Effect pour afficher une erreur si l'utilisateur est mineur
-  minorEffect = effect(() => {
-    if (this.age() < 18) {
-      console.error('Erreur : L\'utilisateur est mineur !');
-    }
-  });
-  // Méthode pour mettre à jour le nom
-  updateName(event: Event) {
-    const newName = (event.target as HTMLInputElement).value;
-    this.name.set(newName);
-    console.log(`Nom mis à jour : ${newName}`);
+   effect(() => {
+      console.log('Statut de minorité mis à jour :', this.isMinor());
+    });
   }
 
-  // Méthode pour mettre à jour l'âge
-  updateAge(event: Event) {
-    const newAge = parseInt((event.target as HTMLInputElement).value, 10) || 0;
-    this.age.set(newAge);
-    console.log(`Âge mis à jour : ${newAge}`);
+  updateName() {
+    this.name.set(prompt('Nouveau nom ?') || this.name());
+  }
+
+  updateAge() {
+    this.age.set(Number(prompt('Nouvel âge ?') || this.age()));
+  }
+
+  updateEmail() {
+    this.email.set(prompt('Nouvel email ?') || this.email());
+  }
+
+  updateCity() {
+    this.city.set(prompt('Nouvelle ville ?') || this.city());
+  }
+
+  updateJob() {
+    this.job.set(prompt('Nouvelle profession ?') || this.job());
   }
 }

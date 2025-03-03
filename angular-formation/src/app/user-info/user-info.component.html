@@ -1,10 +1,8 @@
-<p>{{ userInfo() }}</p>
-
-<label>Nom :
-    <input type="text" [value]="name()" (input)="updateName($event)" />
-  </label>
-  
-  <label>Âge :
-    <input type="number" [value]="age()" (input)="updateAge($event)" />
-  </label>
+<h2>Profil utilisateur</h2>
+<p>{{isMinor()}}</p>
+<p>Nom : {{ name() }} <button (click)="updateName()">Modifier</button></p>
+<p>Âge : {{ age() }} <button (click)="updateAge()">Modifier</button></p>
+<p>Email : {{ email() }} <button (click)="updateEmail()">Modifier</button></p>
+<p>Ville : {{ city() }} <button (click)="updateCity()">Modifier</button></p>
+<p>Profession : {{ job() }} <button (click)="updateJob()">Modifier</button></p>
   

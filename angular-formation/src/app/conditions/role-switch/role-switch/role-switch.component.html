@@ -1,0 +1,24 @@
+<div>
+    @switch (role) {
+        @case ('admin') {
+            <p>Bienvenue, Admin !</p>
+        } 
+        @case ('editor') {
+            <p>Bonjour, Éditeur</p>
+        }
+        @case ('user') {
+            <p>Bonjour, Utilisateur</p>
+        }
+        @default {
+            <p>Rôle inconnu</p>
+        }
+    }
+  
+    <label for="role">Choisir un rôle :</label>
+    <select id="role" (change)="selectRole($event)">
+      <option value="admin">Admin</option>
+      <option value="editor">Éditeur</option>
+      <option value="user">Utilisateur</option>
+      <option value="other">Autre</option>
+    </select>
+  </div>

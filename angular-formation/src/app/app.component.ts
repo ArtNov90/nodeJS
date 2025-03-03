@@ -1,49 +1,110 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ModalComponent } from './modal/modal.component';
-import { ChildOneComponent } from './child-one/child-one.component';
-import { ChildTwoComponent } from './child-two/child-two.component';
-import { ChildThreeComponent } from './child-three/child-three.component';
-import { ButtonComponent } from './button/button.component';
-import { HoverBoxComponent } from './hover-box/hover-box.component';
-import { KeyTrackerComponent } from './key-tracker/key-tracker.component';
-import { LoginStatusComponent } from './login-status/login-status.component';
-import { UserRoleComponent } from './user-role/user-role.component';
-import { UserStatusComponent } from './user-status/user-status.component';
-import { FormComponent } from './form/form.component';
-import { FromGroupComponent } from './from-group/from-group.component';
-import { HomeComponent } from './home/home.component';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-
-
-
-
+import { WelcomeWithNameComponent } from "./welcome-with-name/welcome-with-name.component";
+import { UserInfoComponent } from "./user-info/user-info.component";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { BidirectionnalParentComponent } from "./bidirectionnal-parent/bidirectionnal-parent.component";
+import { CommonModule } from '@angular/common';
+import { PaginationComponent } from "./pagination/pagination/pagination.component";
+import { AppListComponent } from "./app-list/app-list.component";
+import { CardComponent } from "./components/card-component/card-component.component";
+import { DynamicParentComponent } from "./components/dynamic-parent/dynamic-parent.component";
+import { ParentComponent } from "./components/parent-outlet/parent-outlet.component";
+import { ModalComponent} from "./components/modal/modal.component";
+import { ButtonComponent } from "./events/button/button.component";
+import { HoverboxComponent } from "./events/hoverbox/hoverbox.component";
+import { KeytrackerComponent } from "./events/keytracker/keytracker.component";
+import { ConnectionComponent } from "./conditions/connection/connection.component";
+import { PermissionsComponent } from "./conditions/permissions/permissions/permissions.component";
+import { RoleSwitchComponent } from "./conditions/role-switch/role-switch/role-switch.component";
+import { FormulaireComponent } from "./formulaire/formulaire/formulaire.component";
+import { FormulaireGroupComponent } from "./formulaire/formulaire-group/formulaire-group/formulaire-group.component";
+import { StockDisplayComponentComponent } from "./lifecycle/stock-display/stock-display.component";
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { decrease, increment, incrementByNumber, reset } from './store/counter.actions';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, ModalComponent, ChildOneComponent, ChildTwoComponent, ChildThreeComponent,
-    ButtonComponent,HoverBoxComponent,KeyTrackerComponent,LoginStatusComponent,UserRoleComponent,UserStatusComponent,FormComponent,FromGroupComponent,HomeComponent,RouterOutlet,RouterLink ,RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, StockDisplayComponentComponent, CommonModule,FormulaireGroupComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  components: { name: string; component: any }[] = [
-    { name: 'Composant 1', component: ChildOneComponent },
-    { name: 'Composant 2', component: ChildTwoComponent },
-    { name: 'Composant 3', component: ChildThreeComponent }
+  title = 'Formation-Angular';
+
+  professionParent = signal("Eleve");
+
+  receivedMessage: string = "";
+
+  names = ["Alice", "Bob", "Charlie"];
+
+  currentPage = signal<number>(1);
+
+  quantity = 100;
+  change = 10;
+
+  increase(){
+    this.quantity= this.quantity + 10;
+  }
+
+  decrease(){
+    this.quantity= this.quantity - 20;
+  }
+
+  selectedComponent = PaginationComponent;
+
+  receiveMessage(message: string){
+    console.log('Données reçues de l’enfant:', message);
+    this.receivedMessage = message;
+  }
+
+  modify(){
+    this.professionParent.set("Professeur")
+  }
+
+  users = [
+    { id : 1, name : "Alice", age : 25 },
+    { id : 2, name : "Bob", age : 30 },
+    { id : 3, name : "Charlie", age : 35 }
   ];
 
-  selectedComponent: any = null;
-
-  openModalFromEvent(event: Event) {
-    const selectedIndex = (event.target as HTMLSelectElement).value;
-    //this.openModal(this.components[selectedIndex].component);
+  trackById(index: number, name: any){
+    return name.id;
   }
 
-  openModal(component: any) {
-    this.selectedComponent = component;
+  suivant(){
+    this.currentPage.set(this.currentPage() + 1);
   }
-  closeModal() {
-    this.selectedComponent = null;
+
+  console(){
+    console.log("console")
+  }
+
+  isLoggedIn = true;
+  isPremium = true;
+
+  condition = "c";
+
+  count$: Observable<number>
+
+  constructor(private store: Store<{count: number}>){
+    this.count$ = store.select('count');
+  }
+
+  incrementStore(){
+    this.store.dispatch(increment())
+  }
+
+  decreaseStore(){
+    this.store.dispatch(decrease())
+  }
+
+  resetStore(){
+    this.store.dispatch(reset())
+  }
+
+  incrementByNumberStore(number : number){
+    this.store.dispatch(incrementByNumber({combien: number}))
   }
 }

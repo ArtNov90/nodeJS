@@ -1,17 +1,103 @@
-<app-button></app-button>
-<app-hover-box></app-hover-box>
-<app-key-tracker></app-key-tracker>
-<app-login-status></app-login-status>
-<app-user-role></app-user-role>
-<app-user-status></app-user-status>
-<app-form></app-form>
-<app-from-group></app-from-group>
-<nav>
+<!-- <app-user-profile (mouseenter)="console()" [profession]="professionParent()" [annee]=4
+  (message)="receiveMessage($event)" />
+<button (click)="modify()">Modifier</button>
+<p>Message recu : {{receivedMessage}}</p>
+
+<app-bidirectionnal-parent />
+<app-pagination [(page)]="currentPage" />
+<button (click)="suivant()">Page suivante</button>
+<p>{{currentPage()}}</p>
+
 <ul>
-    <li><a routerLink="/home">Accueil</a></li>| 
-    <li><a routerLink="/about">À propos</a></li>
+  <li *ngFor="let user of users, trackBy: trackById">{{user.name}}</li>
+</ul>
+
+
+<ng-container *ngComponentOutlet="selectedComponent"></ng-container> -->
+
+<!-- <app-card>
+  <p>Texte à l'intérieur d'une carte</p>
+</app-card> -->
+
+<!-- <app-parent-outlet />
+<app-dynamic-parent />
+<app-modal [component]="selectedComponent">
+  <app-card>
+    <p>Texte à l'intérieur d'une carte</p>
+  </app-card>
+</app-modal> -->
+
+
+<!-- <h2>Exercice 1</h2>
+<app-button></app-button>
+<h2>Exercice 2 & 3</h2>
+<app-hoverbox />
+<h2>Exercice 4</h2>
+<app-keytracker></app-keytracker>
+
+
+@if (false){
+<p>Vrai</p>
+} @else if(false){
+<p>Autre condition</p>
+} @else {
+<p>Faux</p>
+}
+
+@if (isLoggedIn) {
+<p>Vous êtes connecté</p>
+} @else {
+<p>Vous n'êtes pas connecté</p>
+}
+
+@switch (condition) {
+@case ("a") {
+<p>Case A.</p>
+}
+@case ("b") {
+Case B.
+}
+@default {
+Default case.
+}
+} -->
+
+<!-- @if (isLoggedIn && isPremium){
+<p>Utilisateur premium connecté</p>
+}
+
+@if (isLoggedIn && !isPremium){
+<p>Utilisateur non-premium connecté</p>
+}
+
+@if (!isLoggedIn || !isPremium){
+<p>Utilisateur non-premium ou non-connecté</p>
+} -->
+
+<!-- <app-connection/>
+<app-role-switch/>
+<app-permissions/>
+
+<app-formulaire/>
+<app-formulaire-group/> -->
+
+
+ <nav>
+  <ul>
+    <li><a routerLink="/first/42" routerLinkActive="active" ariaCurrentWhenActive="page">Premier component</a></li>
+    <li><a routerLink="/second" routerLinkActive="active" ariaCurrentWhenActive="page">Second component</a></li>
     <li><a routerLink="/user/1" routerLinkActive="active" ariaCurrentWhenActive="page">User</a></li>
   </ul>
-  </nav>
-  
-  <router-outlet></router-outlet>
+</nav> 
+
+<app-stock-display-component [quantity]="quantity" [change]="change"></app-stock-display-component>
+
+<div>Separation</div>
+
+<p>Counter : {{count$ | async}}</p>
+<button (click)="incrementStore()">Increment</button>
+<button (click)="decreaseStore()">Decrease</button>
+<button (click)="resetStore()">Reset</button>
+<button (click)="incrementByNumberStore(10)">Increment By Number</button>
+
+<router-outlet />

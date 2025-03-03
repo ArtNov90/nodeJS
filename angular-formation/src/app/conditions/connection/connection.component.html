@@ -1,0 +1,11 @@
+<div>
+    @if (isLoggedIn){
+        <p>Bienvenue, utilisateur !</p>
+    } @else {
+        <p>Veuillez vous connecter.</p>
+    }
+
+    <button (click)="toggleLogin()">
+        {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
+    </button>
+</div>
